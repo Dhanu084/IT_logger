@@ -20,24 +20,49 @@
       "attention": false,
       "date": "03-02-2019",
       "tech": "Sara Wilson"
+    },
+    {
+      "message": "fixed 002 hard drive",
+      "tech": "SaraWilson",
+      "attention": true,
+      "date": "2020-10-04T08:39:10.254Z",
+      "id": 4
+    },
+    {
+      "message": "test check",
+      "tech": "SaraWilson",
+      "attention": true,
+      "date": "2020-10-04T09:26:23.932Z",
+      "id": 5
+    },
+    {
+      "message": "fixed 002 hard drive",
+      "tech": "DhanushKiran",
+      "attention": false,
+      "date": "2020-10-04T09:27:14.747Z",
+      "id": 6
     }
   ],
-
   "techs": [
     {
-      "id": "1",
+      "id": 1,
       "firstName": "John",
       "lastName": "Doe"
     },
     {
-      "id": "2",
+      "id": 2,
       "firstName": "Sam",
       "lastName": "Smith"
     },
     {
-      "id": 2,
+      "id": 3,
       "firstName": "Sara",
       "lastName": "Wilson"
+    },
+    {
+      "firstName": "Dhanush",
+      "lastName": "Kiran",
+      "id": 4
     }
   ]
 }
