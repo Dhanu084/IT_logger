@@ -6,6 +6,7 @@ import {
   DELETE_LOG,
   SET_CURRENT,
   EDIT_LOG,
+  CLEAR_CURRENT,
 } from "../actions/types";
 
 const initialState = {
@@ -50,6 +51,12 @@ export default (state = initialState, action) => {
         ...state,
         current: action.payload,
       };
+    case CLEAR_CURRENT: {
+      return {
+        ...state,
+        current: null,
+      };
+    }
     case LOGS_ERROR: {
       return {
         ...state,

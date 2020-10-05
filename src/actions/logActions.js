@@ -6,6 +6,7 @@ import {
   DELETE_LOG,
   EDIT_LOG,
   SET_CURRENT,
+  CLEAR_CURRENT,
 } from "./types";
 
 // method 1
@@ -111,12 +112,20 @@ export const editLog = (log) => async (dispatch) => {
       payload: err,
     });
   }
+
+  clearCurrent();
 };
 
 export const setCurrent = (log) => (dispatch) => {
   dispatch({
     type: SET_CURRENT,
     payload: log,
+  });
+};
+
+export const clearCurrent = () => (dispatch) => {
+  dispatch({
+    type: CLEAR_CURRENT,
   });
 };
 export const setLoading = () => (dispatch) => {
