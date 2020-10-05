@@ -3,8 +3,8 @@
     {
       "message": "Changed hard drive on workstation 005",
       "tech": "SaraWilson",
-      "attention": false,
-      "date": "2020-10-05T14:19:46.323Z",
+      "attention": true,
+      "date": "2020-10-05T14:23:58.045Z",
       "id": 1
     },
     {
