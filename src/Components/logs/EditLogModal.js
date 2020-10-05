@@ -1,16 +1,32 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { connect } from "react-redux";
 import M from "materialize-css/dist/js/materialize.min.js";
+import { editLog } from "../../actions/logActions";
 
-const EditLogModal = () => {
+const EditLogModal = ({ current, techs, editLog }) => {
   const [message, setMessage] = useState("");
   const [attention, setAttention] = useState(false);
   const [tech, setTech] = useState("");
 
+  useEffect(() => {
+    if (current) {
+      setMessage(current.message);
+      setAttention(current.attention);
+      setTech(current.tech);
+    }
+  }, [current]);
   const onSubmit = () => {
     if (message === "" || tech === "") {
       M.toast({ html: "Please enter a message and tech" });
     } else {
-      console.log(message, tech, attention);
+      let editedLog = { message, tech, attention, date: new Date() };
+      if (current) {
+        editedLog = {
+          ...editedLog,
+          id: current.id,
+        };
+      }
+      editLog(editedLog);
     }
     setMessage("");
     setTech("");
@@ -22,9 +38,6 @@ const EditLogModal = () => {
         <h4>Enter System Log</h4>
         <div className="row">
           <div className="input-field">
-            <label htmlFor="message" className="active">
-              Log Message
-            </label>
             <input
               type="text"
               name="message"
@@ -42,11 +55,18 @@ const EditLogModal = () => {
               className="browser-default"
               onChange={(e) => setTech(e.target.value)}
             >
-              <option value="" disabled>
-                Select Technician
+              <option
+                value="disabled"
+                defaultValue={current != null ? current.tech : ""}
+              >
+                {current != null ? current.tech : ""}
               </option>
-              <option value="JohnDoe">John Doe</option>
-              <option value="Sara Wilson">Sara Wilson</option>
+              {techs.map((tech) => (
+                <option
+                  value={`${tech.firstName}${tech.lastName}`}
+                  key={tech.id}
+                >{`${tech.firstName} ${tech.lastName}`}</option>
+              ))}
             </select>
           </div>
         </div>
@@ -86,4 +106,9 @@ const modalsStyle = {
   width: "75%",
   height: "75%",
 };
-export default EditLogModal;
+
+const mapStateToProps = (state) => ({
+  current: state.log.current,
+  techs: state.tech.techs,
+});
+export default connect(mapStateToProps, { editLog })(EditLogModal);

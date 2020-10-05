@@ -5,7 +5,6 @@ import { getTechs } from "../../actions/techActions";
 import PropTypes from "prop-types";
 
 const TechListModal = ({ tech: { techs, loading }, getTechs }) => {
-  console.log(techs);
   useEffect(() => {
     getTechs();
     //eslint-disable-next-line
@@ -17,7 +16,7 @@ const TechListModal = ({ tech: { techs, loading }, getTechs }) => {
         <h4>Technician List</h4>
         <ul className="collection">
           {!loading &&
-            techs.map((tech) => <TechItem tech={tech} key={tech.id} />)}
+            techs.map((tech, index) => <TechItem tech={tech} key={index} />)}
         </ul>
       </div>
     </div>

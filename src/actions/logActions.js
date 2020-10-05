@@ -4,6 +4,8 @@ import {
   LOGS_ERROR,
   ADD_LOG,
   DELETE_LOG,
+  EDIT_LOG,
+  SET_CURRENT,
 } from "./types";
 
 // method 1
@@ -72,6 +74,7 @@ export const deleteLog = (logId) => async (dispatch) => {
         "Content-Type": "application/json",
       },
     });
+
     dispatch({
       type: DELETE_LOG,
       payload: logId,
@@ -83,6 +86,38 @@ export const deleteLog = (logId) => async (dispatch) => {
       payload: err,
     });
   }
+};
+
+export const editLog = (log) => async (dispatch) => {
+  try {
+    setLoading();
+    const res = await fetch(`/logs/${log.id}`, {
+      method: "PUT",
+      body: JSON.stringify(log),
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    const data = await res.json();
+    console.log(data);
+    dispatch({
+      type: EDIT_LOG,
+      payload: data,
+    });
+  } catch (err) {
+    console.log(err);
+    dispatch({
+      type: LOGS_ERROR,
+      payload: err,
+    });
+  }
+};
+
+export const setCurrent = (log) => (dispatch) => {
+  dispatch({
+    type: SET_CURRENT,
+    payload: log,
+  });
 };
 export const setLoading = () => (dispatch) => {
   dispatch({

@@ -1,18 +1,18 @@
 {
   "logs": [
     {
-      "id": 1,
       "message": "Changed hard drive on workstation 005",
-      "attention": false,
-      "date": "03-02-2019",
-      "tech": "Sam Smith"
+      "tech": "SaraWilson",
+      "attention": true,
+      "date": "2020-10-05T14:11:21.533Z",
+      "id": 1
     },
     {
-      "id": 2,
       "message": "workstation 005 not working",
-      "attention": true,
-      "date": "03-02-2019",
-      "tech": "John Doe"
+      "tech": "John Doe",
+      "attention": false,
+      "date": "2020-10-05T14:10:58.556Z",
+      "id": 2
     },
     {
       "id": 3,
@@ -23,46 +23,27 @@
     },
     {
       "message": "fixed 002 hard drive",
-      "tech": "SaraWilson",
-      "attention": true,
-      "date": "2020-10-04T08:39:10.254Z",
-      "id": 4
-    },
-    {
-      "message": "test check",
-      "tech": "SaraWilson",
-      "attention": true,
-      "date": "2020-10-04T09:26:23.932Z",
-      "id": 5
-    },
-    {
-      "message": "fixed 002 hard drive",
-      "tech": "DhanushKiran",
+      "tech": "dhanushkiran",
       "attention": false,
-      "date": "2020-10-04T09:27:14.747Z",
-      "id": 6
+      "date": "2020-10-05T14:11:41.506Z",
+      "id": 4
     }
   ],
   "techs": [
     {
-      "id": 1,
       "firstName": "John",
-      "lastName": "Doe"
+      "lastName": "Doe",
+      "id": 6
     },
     {
-      "id": 2,
-      "firstName": "Sam",
-      "lastName": "Smith"
-    },
-    {
-      "id": 3,
       "firstName": "Sara",
-      "lastName": "Wilson"
+      "lastName": "Wilson",
+      "id": 7
     },
     {
-      "firstName": "Dhanush",
-      "lastName": "Kiran",
-      "id": 4
+      "firstName": "dhanush",
+      "lastName": "kiran",
+      "id": 8
     }
   ]
 }
